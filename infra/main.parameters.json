@@ -15,7 +15,7 @@
       "value": "${AZURE_SQL_ADMIN_LOGIN}"
     },
     "sqlAdminSid": {
-      "value": "${AZURE_SQL_ADMIN_SID}"
+      "value": "f4ade25e-ffd7-40ec-a0ef-6853e01a8739"
     }
   }
 }
