@@ -36,7 +36,7 @@ def main():
     queries and display them in a Streamlit app.
 
     ## Select a Hotel
-    """fix2
+    """
     )
 
     # Display the list of hotels as a drop-down list
