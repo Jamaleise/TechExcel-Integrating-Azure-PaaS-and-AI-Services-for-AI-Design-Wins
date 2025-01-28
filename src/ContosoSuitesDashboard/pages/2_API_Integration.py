@@ -36,12 +36,12 @@ def main():
     queries and display them in a Streamlit app.
 
     ## Select a Hotel
-    """
+    """fix2
     )
 
     # Display the list of hotels as a drop-down list
     hotels_json = get_hotels().json()
-    st,write(hotels_json)
+    st.write(hotels_json)
     # Reshape hotels to an object with hotelID and hotelName
     hotels = [{"id": hotel["hotelID"], "name": hotel["hotelName"]} for hotel in hotels_json]
     
