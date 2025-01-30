@@ -56,19 +56,28 @@ builder.Services.AddSingleton<CosmosClient>((_) =>
   {
   IKernelBuilder kernelBuilder = Kernel.CreateBuilder();
   kernelBuilder.AddAzureOpenAIChatCompletion(
-      deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
-      endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
-      apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
-  );
+//       deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
+//       endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
+//       apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
+//   );
+     deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
+     endpoint: builder.Configuration["ApiManagement:Endpoint"]!,
+     apiKey: builder.Configuration["ApiManagement:ApiKey"]!
+ );
   var databaseService = _.GetRequiredService<IDatabaseService>();
   kernelBuilder.Plugins.AddFromObject(databaseService);
 
   #pragma warning disable SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-      kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(
-          deploymentName: builder.Configuration["AzureOpenAI:EmbeddingDeploymentName"]!,
-          endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
-          apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
-      );
+    //   kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(
+    //       deploymentName: builder.Configuration["AzureOpenAI:EmbeddingDeploymentName"]!,
+    //       endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
+    //       apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
+    //   );
+         kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(
+         deploymentName: builder.Configuration["AzureOpenAI:EmbeddingDeploymentName"]!,
+         endpoint: builder.Configuration["ApiManagement:Endpoint"]!,
+         apiKey: builder.Configuration["ApiManagement:ApiKey"]!
+     );
   #pragma warning restore SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
   kernelBuilder.Plugins.AddFromType<MaintenanceRequestPlugin>("MaintenanceCopilot");
